@@ -1,10 +1,13 @@
 import { useLayoutEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import BookVenueComponent from "./components/Customer/BookVenueComponent";
+import SearchVenueComponent from "./components/Customer/SearchVenueComponent";
 import ViewVenueStatusComponent from "./components/Dealer/ViewVenueStatusComponent";
 // import { DealerLoginComponent } from './components/Dealer/DealerLoginComponent';
 import { HeaderComponent } from "./components/HeaderComponent";
 import { LandingComponent } from "./components/LandingComponent";
+import UpdateVenueComponent from "./components/Venue/UpdateVenueComponent";
 
 function App() {
   return (
@@ -25,15 +28,15 @@ function App() {
         <Route path="/viewVenueStatus" element={<ViewVenueStatusComponent />} />
 
         {/* Venue components */}
-        {/* <Route path="/venueRegistration" element={<VenueRegistrationComponent />} />
-        <Route path="/updateVenue" element={<UpdateVenueComponent />} /> */}
+        {/* <Route path="/venueRegistration" element={<VenueRegistrationComponent />} /> */}
+        <Route path="/updateVenue" element={<UpdateVenueComponent />} />
 
         {/* Customer components */}
         {/* <Route path="/customerLogin" element={<CustomerLoginComponent />} />
-        <Route path="/customerRegistration" element={<CustomerRegistrationComponent />} />
+        <Route path="/customerRegistration" element={<CustomerRegistrationComponent />} /> */}
         <Route path="/searchVenue" element={<SearchVenueComponent />} />
         <Route path="/bookVenue" element={<BookVenueComponent />} />
-        <Route path="/confirmPayment" element={<ConfirmPaymentComponent />} />
+        {/* <Route path="/confirmPayment" element={<ConfirmPaymentComponent />} />
         <Route path="/updateCustomer" element={<UpdateCustomerComponent />} /> */}
 
         {/* Admin components */}

@@ -1,3 +1,5 @@
+// US-06
+
 import React from "react";
 import Design from "../../Design";
 
@@ -22,10 +24,7 @@ function ViewVenueStatusComponent() {
       >
         Add Venue
       </button>
-      <table
-        className="table table-bordered text-center "
-        id="manage-venue-table"
-      >
+      <table className="table table-bordered text-center " id="table-div">
         <thead>
           <tr style={{ color: "black", fontWeight: "bold" }}>
             <th scope="col">#</th>
