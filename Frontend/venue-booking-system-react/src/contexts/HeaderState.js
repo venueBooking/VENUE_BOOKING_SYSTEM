@@ -4,7 +4,7 @@ import headerContext from './headerContext';
 const HeaderState = (props) => {
     const s = {
         "userType": "none",
-        "displayAttribute": "none"
+        "displayAttribute": "block"
 
     }
 

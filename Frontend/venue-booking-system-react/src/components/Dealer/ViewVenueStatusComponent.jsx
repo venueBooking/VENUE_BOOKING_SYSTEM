@@ -1,9 +1,20 @@
-import React from "react";
+// US-06
+
+import React, { useContext } from "react";
+import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 
 function ViewVenueStatusComponent() {
+
+  const headerC = useContext(headerContext)
+
+  function bringHeader() {
+    headerC.updateDisplayAttribute("block")
+  }
+
   return (
     <>
+      {/* <div id="container-div"> */}
       <div id="title-div">
         <h2
           style={{
@@ -19,13 +30,11 @@ function ViewVenueStatusComponent() {
         type="button"
         className="btn btn-outline-secondary"
         id="button-div"
+        onClick={bringHeader}
       >
         Add Venue
       </button>
-      <table
-        className="table table-bordered text-center "
-        id="manage-venue-table"
-      >
+      <table className="table table-bordered text-center " id="table-div">
         <thead>
           <tr style={{ color: "black", fontWeight: "bold" }}>
             <th scope="col">#</th>
@@ -63,6 +72,7 @@ function ViewVenueStatusComponent() {
           </tr>
         </tbody>
       </table>
+      {/* </div> */}
 
       <Design />
     </>
