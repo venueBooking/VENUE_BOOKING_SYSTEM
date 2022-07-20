@@ -456,6 +456,7 @@ label {
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+/* <<<<<<< HEAD */
 /*------------------ View users admin component --------------*/
 #view-user-admin-table {
   position: absolute;
@@ -508,3 +509,146 @@ label {
 
 
 /*------------ request payment component ----------*/
+/* ======= */
+
+/*---------------- Customer Registration Page --------------*/
+
+.reg-form{
+  display:flex;
+  flex-direction: column;
+}
+
+#survey1{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+#survey2{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.customer-register-span-input {
+  display: block;
+  font-size: 2.2vw;
+  font-weight: bold;
+}
+
+.customer-register-input {
+  
+  width: 32vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.customer-register-input-field {
+  background-color: #6d6d87;
+  height: 8vh;
+  width: 24vw;
+  color: white;
+  font-size: 1.6vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.6vw;
+  padding-left: 1vw;
+  outline: none !important;
+  margin-right: 25px;
+}
+
+.customer-register-span-header {
+  
+  font-size: 3.2vw;
+  font-weight: bold;
+}
+
+.customer-register-input {
+  
+  width: 32vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* ----------------Customer Login & Admin Login------------------- */
+
+.login-span-header {
+  
+  font-size: 3.2vw;
+  font-weight: bold;
+}
+
+.login-span-input {
+
+  display: block;
+  font-size: 2.2vw;
+  font-weight: bold;
+}
+
+.login-input {
+  
+  width: 32vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.login-input-field {
+  background-color: #6d6d87;
+  height: 8vh;
+  width: 32vw;
+  color: white;
+  font-size: 1.6vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.6vw;
+  padding-left: 1vw;
+  outline: none !important;
+}
+
+.login-button {
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+/*---------------Update Dealer Profile---------------------------------*/
+
+.dealer-update-span-input {
+  
+  display: block;
+  font-size: 2.2vw;
+  font-weight: bold;
+}
+
+.dealer-update-input {
+  
+  width: 32vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dealer-update-input-field {
+  background-color: #6d6d87;
+  height: 8vh;
+  width: 24vw;
+  color: white;
+  font-size: 1.6vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.6vw;
+  padding-left: 1vw;
+  outline: none !important;
+  margin-right: 20px
+}
+
+.dealer-update-span-header {
+  text-align: left;
+  font-size: 3.2vw;
+  font-weight: bold;
+}
+
+
+.dealer-update-input {
+ 
+  width: 32vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
