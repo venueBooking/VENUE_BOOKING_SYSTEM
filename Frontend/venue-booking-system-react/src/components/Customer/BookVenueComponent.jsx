@@ -9,17 +9,6 @@ import CustomDatePicker from "../../Supporting_Components/CustomDatePicker";
 import CustomTextField from "../../Supporting_Components/CustomTextField";
 
 function BookVenueComponent() {
-  const dateValue = new Date(
-    new Date().getFullYear(),
-    new Date().getMonth(),
-    14
-  );
-  const startDate = new Date(
-    new Date().getFullYear(),
-    new Date().getMonth(),
-    10
-  );
-  const enddate = new Date(new Date().getFullYear(), new Date().getMonth(), 20);
   let cities = ["Banglore", "Pune", "Nashik", "Mumbai"];
 
   return (
@@ -29,6 +18,7 @@ function BookVenueComponent() {
           style={{
             color: "white",
             fontWeight: "bold",
+            marginTop: "125px",
           }}
         >
           Book Venue

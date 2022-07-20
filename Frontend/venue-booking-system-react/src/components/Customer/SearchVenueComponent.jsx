@@ -15,6 +15,7 @@ function SearchVenueComponent() {
             style={{
               color: "white",
               fontWeight: "bold",
+              marginTop: "75px",
             }}
           >
             Search venues by location

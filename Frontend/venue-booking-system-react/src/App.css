@@ -1,5 +1,5 @@
 * {
-  font-family: 'Poppins', Arial, sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   color: white;
 }
 
@@ -18,13 +18,13 @@
   background-color: red;
 } */
 
-#title-div{
+#title-div {
   position: absolute;
   margin-left: 80px;
-  margin-top: 125px;
+  /* margin-top: 125px; */
 }
 
-#button-div{
+#button-div {
   right: 70px;
   position: absolute;
   background-color: transparent;
@@ -34,14 +34,14 @@
   margin-top: 125px;
 }
 
-#table-div{
+#table-div {
   position: absolute;
   margin-left: 80px;
   margin-top: 205px;
   width: 87vw;
 }
 
-#manage-venue-table{
+#manage-venue-table {
   position: absolute;
   margin-top: 150px;
   width: 90vw;
@@ -100,7 +100,7 @@ textarea:focus {
 .row {
   width: 100vw;
   position: absolute;
-  margin-top: 150px;
+  margin-top: 200px;
   margin-left: 65px;
 }
 
@@ -136,7 +136,7 @@ input:focus {
 }
 #update-form-cb {
   position: absolute;
-  margin-top: 18rem;
+  margin-top: 20rem;
   margin-left: 80px;
 }
 label {
@@ -226,19 +226,19 @@ label {
 }
 
 .headerContainer {
-  background-color: #1C1D37;
+  background-color: #1c1d37;
   color: white;
 }
 
 /* ------------Header (Navbar)------------ */
-
 
 /* ------------Landing Page------------ */
 
 .landing-page-background {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("landing-page-background-hd.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("landing-page-background-hd.jpg");
   /* background-image: url("landing-page-background-hd.jpg"); */
   background-size: cover;
   background-position: center;
@@ -302,13 +302,12 @@ label {
   font-weight: bold;
 }
 
-
 @media (orientation: portrait) {
-
   .landing-page-background {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("landing-page-background-hd.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("landing-page-background-hd.jpg");
     /* background-image: url("landing-page-background-hd.jpg"); */
     background-size: cover;
     background-position: center;
@@ -322,7 +321,7 @@ label {
     align-items: center;
     gap: 6vh;
   }
-  
+
   #landing-page-app-header {
     /* background-color: red; */
     position: relative;
@@ -333,7 +332,7 @@ label {
     font-size: 4.2vw;
     font-weight: bold;
   }
-  
+
   #landing-page-info-1 {
     /* background-color: red; */
     position: relative;
@@ -344,7 +343,7 @@ label {
     font-size: 6vw;
     font-weight: bold;
   }
-  
+
   #landing-page-info-2 {
     /* background-color: red; */
     position: relative;
@@ -355,7 +354,7 @@ label {
     font-size: 4vw;
     font-weight: bold;
   }
-  
+
   #landing-page-dealer-login {
     /* background-color: red; */
     position: relative;
@@ -365,7 +364,7 @@ label {
     height: 8vh;
     width: 32vw;
   }
-  
+
   #landing-page-customer-login {
     /* background-color: red; */
     position: relative;
@@ -378,8 +377,6 @@ label {
 }
 
 /* ------------Landing Page------------ */
-
-
 
 /* ------------General Application Background------------ */
 
@@ -397,12 +394,10 @@ label {
 
 /* ------------General Application Background------------ */
 
-
-
 /* ------------Dealer Login Page------------ */
 
 .inner-box {
-  background-color: #1C1D37;
+  background-color: #1c1d37;
   border: 0.4vw solid white;
   border-radius: 2.4vw;
   height: 80vh;
@@ -434,7 +429,7 @@ label {
 }
 
 .dealer-login-input-field {
-  background-color: #6D6D87;
+  background-color: #6d6d87;
   height: 8vh;
   width: 32vw;
   color: white;
@@ -453,11 +448,11 @@ label {
 
 /* ------------Dealer Login Page------------ */
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
   color: rgba(255, 255, 255, 0.5);
 }
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
-

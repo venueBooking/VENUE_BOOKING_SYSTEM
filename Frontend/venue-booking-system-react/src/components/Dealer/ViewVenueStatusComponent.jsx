@@ -5,11 +5,10 @@ import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 
 function ViewVenueStatusComponent() {
-
-  const headerC = useContext(headerContext)
+  const headerC = useContext(headerContext);
 
   function bringHeader() {
-    headerC.updateDisplayAttribute("block")
+    headerC.updateDisplayAttribute("block");
   }
 
   return (
@@ -20,6 +19,7 @@ function ViewVenueStatusComponent() {
           style={{
             color: "white",
             fontWeight: "bold",
+            marginTop: "125px",
           }}
         >
           Manage Your Venues

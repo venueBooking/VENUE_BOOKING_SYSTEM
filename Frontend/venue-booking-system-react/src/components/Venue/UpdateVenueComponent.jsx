@@ -12,6 +12,7 @@ function UpdateVenueComponent() {
           style={{
             color: "white",
             fontWeight: "bold",
+            marginTop: "125px",
           }}
         >
           Edit Venue Details
