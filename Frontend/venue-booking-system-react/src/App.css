@@ -456,3 +456,55 @@ label {
 ::-webkit-calendar-picker-indicator {
   filter: invert(1);
 }
+/*------------------ View users admin component --------------*/
+#view-user-admin-table {
+  position: absolute;
+  margin-top: 180px;
+  width: 90vw;
+  margin-right: 85px;
+  margin-left: 80px;
+  background-color: #6d6d87;
+}
+
+#button-user-admin-div {
+  right: 240px;
+  position: absolute;
+  background-color: transparent;
+  border: 2px solid white;
+  width: 10vw;
+  border-radius: 10px;
+  margin-top: 125px;
+}
+
+#title-admin-div {
+  position: absolute;
+  margin-left: 80px;
+  /* margin-top: 125px; */
+  margin-top: 125px;
+}
+/*------------ View users admin component ----------*/
+/*------------ request payment component ----------*/
+
+.row-request-payment {
+  width: 100vw;
+  position: absolute;
+  margin-top: 20rem;
+  margin-left: 65px;
+}
+#confirm-button-div {
+  background-color: #1c1d3700;
+  border: 2px solid white;
+  width: 20vw;
+  color: #fff;
+  border-radius: 10px;
+  
+}
+.col-request-payment {
+  width: 10vw;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 30rem;
+}
+
+
+/*------------ request payment component ----------*/

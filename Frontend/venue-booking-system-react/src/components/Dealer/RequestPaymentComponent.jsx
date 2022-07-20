@@ -1,10 +1,17 @@
-// US_13
+// US_07
 import React from "react";
 import Design from "../../Design";
 import CustomCheckBox from "../../Supporting_Components/CustomCheckBox";
 import CustomTextField from "../../Supporting_Components/CustomTextField";
+import { useNavigate } from 'react-router-dom';
 
-function ConfirmPaymentComponent() {
+function RequestPaymentComponent() {
+  const navigate = useNavigate();
+
+  function goToConfirmPayment() {
+    navigate("/confirmPayment")
+    // alert(headerC.state.userType)
+  }
   return (
     <>
       <div id="title-div">
@@ -29,7 +36,7 @@ function ConfirmPaymentComponent() {
             marginLeft:"480px",
           }}
         >
-          Confirm Payment
+          Request Payment
         </h2>
       </div>
 
@@ -57,6 +64,7 @@ function ConfirmPaymentComponent() {
           type="button"
           className="btn btn-outline-secondary"
           id="confirm-button-div"
+          onClick={goToConfirmPayment}
           style={{ marginLeft: "34rem" }}
         >
           Confirm and send
@@ -67,4 +75,4 @@ function ConfirmPaymentComponent() {
   );
 }
 
-export default ConfirmPaymentComponent;
+export default RequestPaymentComponent;
