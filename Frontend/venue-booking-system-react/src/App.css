@@ -1,6 +1,8 @@
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: white;
 }
+
 .rectangle {
   max-width: 100vw;
   height: 80vh;
@@ -10,11 +12,13 @@
   border-radius: 20px;
   border:2px solid white;
 }
+
 #title-div{
   position: absolute;
   margin-left: 80px;
   margin-top: 70px;
 }
+
 #button-div{
   right: 70px;
   position: absolute;
@@ -24,6 +28,7 @@
   border-radius: 10px;
   margin-top: 70px;
 }
+
 #manage-venue-table{
   position: absolute;
   margin-top: 140px;
@@ -32,3 +37,257 @@
   margin-left: 80px;
   background-color: #6D6D87;
 }
+
+.btn {
+  box-shadow: none !important;
+}
+
+/* ------------app dot js------------ */
+
+#main-flex {
+  /* background-color: red; */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ------------app dot js------------ */
+
+/* ------------Header (Navbar)------------ */
+
+#bootstrap-navbar {
+  background-color: #1c1d3700;
+}
+
+.headerContainer {
+  background-color: #1C1D37;
+  color: white;
+}
+
+/* ------------Header (Navbar)------------ */
+
+
+/* ------------Landing Page------------ */
+
+.landing-page-background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("landing-page-background-hd.jpg");
+  /* background-image: url("landing-page-background-hd.jpg"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+#landing-page-app-header {
+  /* background-color: red; */
+  position: absolute;
+  display: inline-block;
+  left: 4vw;
+  top: 8vh;
+  font-size: 2.2vw;
+  font-weight: bold;
+}
+
+#landing-page-info-1 {
+  /* background-color: red; */
+  position: absolute;
+  display: inline-block;
+  left: 4vw;
+  top: 30vh;
+  width: 60vw;
+  font-size: 3.6vw;
+  font-weight: bold;
+}
+
+#landing-page-info-2 {
+  /* background-color: red; */
+  position: absolute;
+  display: inline-block;
+  left: 4vw;
+  top: 68vh;
+  width: 60vw;
+  font-size: 2.4vw;
+  font-weight: bold;
+}
+
+#landing-page-dealer-login {
+  position: absolute;
+  display: inline-block;
+  left: 72vw;
+  top: 32vh;
+  height: 10vh;
+  width: 24vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+#landing-page-customer-login {
+  position: absolute;
+  display: inline-block;
+  left: 72vw;
+  top: 52vh;
+  height: 10vh;
+  width: 24vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+
+@media (orientation: portrait) {
+
+  .landing-page-background {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("landing-page-background-hd.jpg");
+    /* background-image: url("landing-page-background-hd.jpg"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 6vh;
+  }
+  
+  #landing-page-app-header {
+    /* background-color: red; */
+    position: relative;
+    display: block;
+    left: 0;
+    top: 0;
+    margin-top: 4vh;
+    font-size: 4.2vw;
+    font-weight: bold;
+  }
+  
+  #landing-page-info-1 {
+    /* background-color: red; */
+    position: relative;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    width: 78vw;
+    font-size: 6vw;
+    font-weight: bold;
+  }
+  
+  #landing-page-info-2 {
+    /* background-color: red; */
+    position: relative;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    width: 78vw;
+    font-size: 4vw;
+    font-weight: bold;
+  }
+  
+  #landing-page-dealer-login {
+    /* background-color: red; */
+    position: relative;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    height: 8vh;
+    width: 32vw;
+  }
+  
+  #landing-page-customer-login {
+    /* background-color: red; */
+    position: relative;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    height: 8vh;
+    width: 32vw;
+  }
+}
+
+/* ------------Landing Page------------ */
+
+
+
+/* ------------General Application Background------------ */
+
+.app-background {
+  background-color: #383953;
+  position: relative;
+  /* visibility: hidden; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  /* height: 80vh; */
+  flex-grow: 1;
+}
+
+/* ------------General Application Background------------ */
+
+
+
+/* ------------Dealer Login Page------------ */
+
+.inner-box {
+  background-color: #1C1D37;
+  border: 0.4vw solid white;
+  border-radius: 2.4vw;
+  height: 80vh;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.dealer-login-span-header {
+  /* background-color: red; */
+  font-size: 3.2vw;
+  font-weight: bold;
+}
+
+.dealer-login-span-input {
+  /* background-color: red; */
+  display: block;
+  font-size: 2.2vw;
+  font-weight: bold;
+}
+
+.dealer-login-input {
+  /* background-color: red; */
+  width: 32vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.dealer-login-input-field {
+  background-color: #6D6D87;
+  height: 8vh;
+  width: 32vw;
+  color: white;
+  font-size: 1.6vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.6vw;
+  padding-left: 1vw;
+  outline: none !important;
+}
+
+.dealer-login-button {
+  border: 2px solid white;
+  font-weight: bold;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ------------Dealer Login Page------------ */
