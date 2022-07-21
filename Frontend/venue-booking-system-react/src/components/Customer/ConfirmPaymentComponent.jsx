@@ -1,7 +1,6 @@
 // US_13
 import React from "react";
 import Design from "../../Design";
-import CustomCheckBox from "../../Supporting_Components/CustomCheckBox";
 import CustomTextField from "../../Supporting_Components/CustomTextField";
 
 function ConfirmPaymentComponent() {
@@ -9,24 +8,29 @@ function ConfirmPaymentComponent() {
     <>
       <div id="title-div">
         <h1
-        style={{
+          style={{
             color: "white",
             fontWeight: "bold",
             marginTop: "125px",
-            marginLeft:"20px",
-        }}>
-        Magnolia
-        <h6 style={{
-            marginTop:"-1rem",
-            marginLeft:"200px",
-        }} >Indira Nagar </h6>
+            marginLeft: "20px",
+          }}
+        >
+          Magnolia
+          <h6
+            style={{
+              marginTop: "-1rem",
+              marginLeft: "200px",
+            }}
+          >
+            Indira Nagar{" "}
+          </h6>
         </h1>
         <h2
           style={{
             color: "white",
             fontWeight: "bold",
             marginTop: "-3rem",
-            marginLeft:"480px",
+            marginLeft: "480px",
           }}
         >
           Confirm Payment

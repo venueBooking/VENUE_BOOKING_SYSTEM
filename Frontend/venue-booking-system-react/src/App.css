@@ -52,10 +52,6 @@
 #search {
   display: block;
   position: absolute;
-  /* display: flex; */
-  /* margin-top: 70px; */
-  /* margin-left: auto; */
-  /* margin-left: 550px; */
 }
 searchInput {
   margin-top: 105px;
@@ -121,9 +117,12 @@ textarea:focus {
   border-radius: 10px;
 }
 #text-field:focus {
-  border: none;
+  /* border: 1px; */
   outline-offset: 0px;
   outline: none;
+}
+input[type="text"]:focus {
+  outline: 2px solid white; /* oranges! yey */
 }
 textarea:focus,
 input:focus {
@@ -498,7 +497,6 @@ label {
   width: 20vw;
   color: #fff;
   border-radius: 10px;
-  
 }
 .col-request-payment {
   width: 10vw;
@@ -507,23 +505,22 @@ label {
   margin-left: 30rem;
 }
 
-
 /*------------ request payment component ----------*/
 /* ======= */
 
 /*---------------- Customer Registration Page --------------*/
 
-.reg-form{
-  display:flex;
+.reg-form {
+  display: flex;
   flex-direction: column;
 }
 
-#survey1{
+#survey1 {
   display: flex;
   flex-direction: row;
   align-content: center;
 }
-#survey2{
+#survey2 {
   display: flex;
   flex-direction: row;
   align-content: center;
@@ -535,7 +532,6 @@ label {
 }
 
 .customer-register-input {
-  
   width: 32vw;
   display: flex;
   justify-content: space-evenly;
@@ -556,13 +552,11 @@ label {
 }
 
 .customer-register-span-header {
-  
   font-size: 3.2vw;
   font-weight: bold;
 }
 
 .customer-register-input {
-  
   width: 32vw;
   display: flex;
   justify-content: space-evenly;
@@ -571,20 +565,17 @@ label {
 /* ----------------Customer Login & Admin Login------------------- */
 
 .login-span-header {
-  
   font-size: 3.2vw;
   font-weight: bold;
 }
 
 .login-span-input {
-
   display: block;
   font-size: 2.2vw;
   font-weight: bold;
 }
 
 .login-input {
-  
   width: 32vw;
   display: flex;
   justify-content: space-evenly;
@@ -611,14 +602,12 @@ label {
 /*---------------Update Dealer Profile---------------------------------*/
 
 .dealer-update-span-input {
-  
   display: block;
   font-size: 2.2vw;
   font-weight: bold;
 }
 
 .dealer-update-input {
-  
   width: 32vw;
   display: flex;
   justify-content: space-evenly;
@@ -635,7 +624,7 @@ label {
   border-radius: 0.6vw;
   padding-left: 1vw;
   outline: none !important;
-  margin-right: 20px
+  margin-right: 20px;
 }
 
 .dealer-update-span-header {
@@ -644,11 +633,8 @@ label {
   font-weight: bold;
 }
 
-
 .dealer-update-input {
- 
   width: 32vw;
   display: flex;
   justify-content: space-evenly;
 }
-

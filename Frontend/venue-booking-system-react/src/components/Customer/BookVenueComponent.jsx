@@ -1,8 +1,8 @@
 // US-09
 
-import { Autocomplete, FormGroup, Stack, TextField } from "@mui/material";
-import React, { useContext } from "react";
-import headerContext from "../../contexts/headerContext";
+import { Autocomplete, FormGroup } from "@mui/material";
+import React from "react";
+import "../../contexts/headerContext";
 import Design from "../../Design";
 import CustomCheckBox from "../../Supporting_Components/CustomCheckBox";
 import CustomDatePicker from "../../Supporting_Components/CustomDatePicker";

@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import BookVenueComponent from "./components/Customer/BookVenueComponent";
@@ -15,7 +15,7 @@ import UpdateVenueComponent from "./components/Venue/UpdateVenueComponent";
 import HeaderState from "./contexts/HeaderState";
 import ViewUsersComponent from "./components/Admin/ViewUsersComponent";
 import ManageVenueRequestsComponent from "./components/Dealer/ManageVenueRequestsComponent";
-import RequestPaymentComponent from "./components/Dealer/RequestPaymentComponent"; 
+import RequestPaymentComponent from "./components/Dealer/RequestPaymentComponent";
 import ConfirmPaymentComponent from "./components/Customer/ConfirmPaymentComponent";
 function App() {
   return (
@@ -33,11 +33,26 @@ function App() {
             <Route path="/dealerLogin" element={<DealerLoginComponent />} />
             {/* <Route path="/dealerRegistration" element={<DealerRegistrationComponent />} />
             <Route path="/updateDealer" element={<UpdateDealerComponent />} /> */}
-            <Route path="/viewVenueStatus" element={<ViewVenueStatusComponent />} />
-            <Route path="/manageVenueRequests" element={<ManageVenueRequestsComponent />} />
-            <Route path="/requestPayment" element={<RequestPaymentComponent />} />
-            <Route path="/manageVenueRequests" element={<ManageVenueRequestsComponent />} />
-            <Route path="/requestPayment" element={<RequestPaymentComponent />} />
+            <Route
+              path="/viewVenueStatus"
+              element={<ViewVenueStatusComponent />}
+            />
+            <Route
+              path="/manageVenueRequests"
+              element={<ManageVenueRequestsComponent />}
+            />
+            <Route
+              path="/requestPayment"
+              element={<RequestPaymentComponent />}
+            />
+            <Route
+              path="/manageVenueRequests"
+              element={<ManageVenueRequestsComponent />}
+            />
+            <Route
+              path="/requestPayment"
+              element={<RequestPaymentComponent />}
+            />
             <Route path="/updateDealer" element={<UpdateDealerComponent />} />
             <Route
               path="/viewVenueStatus"
@@ -56,15 +71,17 @@ function App() {
             <Route path="/searchVenue" element={<SearchVenueComponent />} />
             <Route path="/bookVenue" element={<BookVenueComponent />} />
             {/*<Route path="/updateCustomer" element={<UpdateCustomerComponent />} /> */}
-            <Route path="/confirmPayment" element={<ConfirmPaymentComponent />} />
+            <Route
+              path="/confirmPayment"
+              element={<ConfirmPaymentComponent />}
+            />
             {/* Admin components */}
 
             {/* <Route path="/adminLogin" element={<AdminLoginComponent />} />*/}
-            <Route path="/viewUser" element={<ViewUsersComponent />} /> 
+            <Route path="/viewUser" element={<ViewUsersComponent />} />
 
             <Route path="/adminLogin" element={<AdminLoginComponent />} />
             {/* <Route path="/viewUser" element={<ViewUsersComponent />} /> */}
-
           </Routes>
         </div>
       </Router>
