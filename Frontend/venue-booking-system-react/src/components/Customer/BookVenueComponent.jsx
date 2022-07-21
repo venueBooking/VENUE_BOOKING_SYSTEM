@@ -45,7 +45,6 @@ function BookVenueComponent() {
                       type="text"
                       {...params.inputProps}
                       style={{ width: "20vw" }}
-                      // autoFocus="true"
                     />
                   </div>
                 )}
