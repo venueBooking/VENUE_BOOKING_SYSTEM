@@ -15,48 +15,47 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.vrs.service.DealerService;
 
 @EnableWebSecurity
-public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
-	
+public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+
 	@Autowired
 	DealerService dealerService;
-	
+
 	@Autowired
 	JwtFilter jwtFilter;
-	
+
 	@Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-        	.csrf()
-        	.disable()
-        	.cors()
-        	.disable()
-        	.authorizeRequests()
-        	.antMatchers("/authenticate").permitAll()
-        	.antMatchers("/h2").permitAll()
-//        	.antMatchers("/getAllDealers").permitAll()
-        	.antMatchers("/swagger-ui.html").permitAll()
-        	.anyRequest().authenticated()
-        	.and()
-        	.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        
-        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-    }
-	
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+				.csrf()
+				.disable()
+				.cors()
+				.disable()
+				.authorizeRequests()
+				.antMatchers("/authenticate").permitAll()
+				.antMatchers("/h2").permitAll()
+				// .antMatchers("/getAllDealers").permitAll()
+				.antMatchers("/swagger-ui.html").permitAll()
+				.anyRequest().authenticated()
+				.and()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+	}
+
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(dealerService);
 	}
-	
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
-	
 
 }
