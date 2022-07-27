@@ -10,7 +10,7 @@ export const CustomerRegistrationComponent = () => {
               Customer Registration
             </span>
 
-            <div id="survey1">
+            <div id="reg-row-1">
               <div className="reg-form">
                 <span className="customer-register-span-input">First Name</span>
                 <input
@@ -39,7 +39,7 @@ export const CustomerRegistrationComponent = () => {
               </div>
             </div>
 
-            <div id="survey2">
+            <div id="reg-row-2">
               <div className="reg-form">
                 <span className="customer-register-span-input">Username</span>
                 <input

@@ -8,6 +8,7 @@ import { DealerLoginComponent } from "./components/Dealer/DealerLoginComponent";
 import { UpdateDealerComponent } from "./components/Dealer/UpdateDealerComponent";
 import { CustomerLoginComponent } from "./components/Customer/CustomerLoginComponent";
 import { CustomerRegistrationComponent } from "./components/Customer/CustomerRegistrationComponent";
+import { DealerRegistrationComponent } from "./components/Dealer/DealerRegistrationComponent";
 import { HeaderComponent } from "./components/HeaderComponent";
 import { AdminLoginComponent } from "./components/Admin/AdminLoginComponent";
 import { LandingComponent } from "./components/LandingComponent";
@@ -31,8 +32,11 @@ function App() {
 
             {/* Dealer components */}
             <Route path="/dealerLogin" element={<DealerLoginComponent />} />
-            {/* <Route path="/dealerRegistration" element={<DealerRegistrationComponent />} />
-            <Route path="/updateDealer" element={<UpdateDealerComponent />} /> */}
+            <Route
+              path="/dealerRegistration"
+              element={<DealerRegistrationComponent />}
+            />
+            {/* <Route path="/updateDealer" element={<UpdateDealerComponent />} /> */}
             <Route
               path="/viewVenueStatus"
               element={<ViewVenueStatusComponent />}
