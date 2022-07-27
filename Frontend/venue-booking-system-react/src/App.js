@@ -18,9 +18,12 @@ import ViewUsersComponent from "./components/Admin/ViewUsersComponent";
 import ManageVenueRequestsComponent from "./components/Dealer/ManageVenueRequestsComponent";
 import RequestPaymentComponent from "./components/Dealer/RequestPaymentComponent";
 import ConfirmPaymentComponent from "./components/Customer/ConfirmPaymentComponent";
+import UserState from "./contexts/UserState";
+import { VenueRegistrationComponent } from "./components/Venue/VenueRegistrationComponent";
 function App() {
   return (
     <HeaderState>
+      <UserState>
       <Router>
         <div id="main-flex">
           {/* Header Component */}
@@ -32,10 +35,7 @@ function App() {
 
             {/* Dealer components */}
             <Route path="/dealerLogin" element={<DealerLoginComponent />} />
-            <Route
-              path="/dealerRegistration"
-              element={<DealerRegistrationComponent />}
-            />
+            <Route path="/dealerRegistration" element={<DealerRegistrationComponent />} />
             {/* <Route path="/updateDealer" element={<UpdateDealerComponent />} /> */}
             <Route
               path="/viewVenueStatus"
@@ -64,8 +64,9 @@ function App() {
             />
 
             {/* Venue components */}
-            {/* <Route path="/venueRegistration" element={<VenueRegistrationComponent />} /> */}
+            <Route path="/venueRegistration" element={<VenueRegistrationComponent />} />
             <Route path="/updateVenue" element={<UpdateVenueComponent />} />
+
             {/* Customer components */}
             <Route path="/customerLogin" element={<CustomerLoginComponent />} />
             <Route
@@ -81,14 +82,13 @@ function App() {
             />
             {/* Admin components */}
 
-            {/* <Route path="/adminLogin" element={<AdminLoginComponent />} />*/}
             <Route path="/viewUser" element={<ViewUsersComponent />} />
 
             <Route path="/adminLogin" element={<AdminLoginComponent />} />
-            {/* <Route path="/viewUser" element={<ViewUsersComponent />} /> */}
           </Routes>
         </div>
       </Router>
+      </UserState>
     </HeaderState>
   );
 }

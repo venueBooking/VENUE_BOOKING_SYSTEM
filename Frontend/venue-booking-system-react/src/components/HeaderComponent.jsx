@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import headerContext from '../contexts/headerContext'
+import userContext from '../contexts/userContext'
 
 export const HeaderComponent = () => {
 
   const headerC = useContext(headerContext)
+  const userC = useContext(userContext)
   const navigate = useNavigate()
   const [alt, setAlt] = useState(0)
 
@@ -15,6 +17,15 @@ export const HeaderComponent = () => {
       headerC.updateDisplayAttribute("none")
       navigate("/")
     }
+  }
+
+  function initiateLogin() {
+    // const userType = headerC.state.userType
+
+    // if (userType === "none"){
+    //   headerC.updateDisplayAttribute("none")
+    //   navigate("/")
+    // }
   }
 
   function changeUserType() {
@@ -47,8 +58,8 @@ export const HeaderComponent = () => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
+            <ul className="navbar-nav ml-auto">
+              {/* <li className="nav-item active">
                 <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
@@ -67,9 +78,12 @@ export const HeaderComponent = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" href="#">Disabled</a>
+              </li> */}
+              <li className="nav-item active">
+                <span className="header-item" onClick={changeUserType}>{headerC.state.userType}</span>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#" onClick={changeUserType}>{headerC.state.userType}</a>
+              <li className="nav-item active">
+                <span className="header-item">{userC.state.firstName}</span>
               </li>
             </ul>
           </div>

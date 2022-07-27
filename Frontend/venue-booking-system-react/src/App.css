@@ -229,6 +229,13 @@ label {
   color: white;
 }
 
+.header-item {
+  /* background-color: red; */
+  color: white;
+  font-size: 1.8vw;
+  margin-left: 2vw;
+}
+
 /* ------------Header (Navbar)------------ */
 
 /* ------------Landing Page------------ */
@@ -429,8 +436,8 @@ label {
 
 .dealer-login-input-field {
   background-color: #6d6d87;
-  height: 8vh;
-  width: 32vw;
+  height: 7vh;
+  width: 28vw;
   color: white;
   font-size: 1.6vw;
   font-weight: bold;
@@ -446,6 +453,46 @@ label {
 }
 
 /* ------------Dealer Login Page------------ */
+
+
+
+/* ------------Dealer Registration Page------------ */
+
+.dealer-registration-input-row {
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-evenly;
+  width: 89vw;
+}
+
+/* ------------Dealer Registration Page------------ */
+
+
+/* ------------Venue Registration Page------------ */
+
+.venue-registration-input-checkbox {
+  /* background-color: red; */
+  display: inline;
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.venue-registration-input-checkbox-label {
+  /* background-color: black; */
+  vertical-align: middle;
+  position: relative;
+  font-size: 1.6vw;
+  margin-left: 0.4vw;
+  margin-right: 3.2vw;
+  display: inline-block;
+}
+
+/* ------------Venue Registration Page------------ */
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
