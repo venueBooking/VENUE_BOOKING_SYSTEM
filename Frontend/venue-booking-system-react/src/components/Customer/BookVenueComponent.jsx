@@ -2,7 +2,9 @@
 
 import { Autocomplete, FormGroup } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../../contexts/headerContext";
+import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 import CustomCheckBox from "../../Supporting_Components/CustomCheckBox";
 import CustomDatePicker from "../../Supporting_Components/CustomDatePicker";
@@ -10,7 +12,10 @@ import CustomTextField from "../../Supporting_Components/CustomTextField";
 
 function BookVenueComponent() {
   let cities = ["Banglore", "Pune", "Nashik", "Mumbai"];
-
+  const navigate = useNavigate(headerContext);
+  function goToRequestPayment() {
+    navigate("/requestPayment");
+  }
   return (
     <>
       <div id="title-div">
@@ -77,6 +82,7 @@ function BookVenueComponent() {
             position: "absolute",
             marginTop: "30rem",
           }}
+          onClick={goToRequestPayment}
         >
           Book Venue
         </button>

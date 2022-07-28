@@ -1,5 +1,5 @@
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
-import { pink } from "@mui/material/colors";
+import { Checkbox, FormControlLabel } from "@mui/material";
+// import { pink } from "@mui/material/colors";
 import React from "react";
 
 function CustomCheckBox(props) {

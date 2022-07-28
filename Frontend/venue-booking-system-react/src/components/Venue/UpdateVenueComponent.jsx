@@ -1,10 +1,19 @@
 import { FormGroup } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 import CustomCheckBox from "../../Supporting_Components/CustomCheckBox";
 import CustomTextField from "../../Supporting_Components/CustomTextField";
 
 function UpdateVenueComponent() {
+  const navigate = useNavigate(headerContext);
+  function goToManageVenueReq() {
+    navigate("/manageVenueRequests");
+  }
+  function goToViewVenueStatus() {
+    navigate("/viewVenueStatus");
+  }
   return (
     <>
       <div id="title-div">
@@ -46,6 +55,7 @@ function UpdateVenueComponent() {
           className="btn btn-outline-secondary"
           id="update-button-div"
           style={{ marginLeft: "20rem" }}
+          onClick={goToManageVenueReq}
         >
           Save
         </button>
@@ -54,6 +64,7 @@ function UpdateVenueComponent() {
           className="btn btn-outline-secondary"
           id="update-button-div"
           style={{ marginLeft: "10rem" }}
+          onClick={goToViewVenueStatus}
         >
           Delete Venue
         </button>

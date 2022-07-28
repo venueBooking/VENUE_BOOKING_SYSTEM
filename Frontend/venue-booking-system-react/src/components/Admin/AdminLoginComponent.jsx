@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import headerContext from "../../contexts/headerContext";
 
 export const AdminLoginComponent = () => {
+  const navigate = useNavigate(headerContext);
+  function goToManageVenueReq() {
+    navigate("/manageVenueRequests");
+  }
   return (
     <>
       <div className="app-background">
@@ -24,7 +30,10 @@ export const AdminLoginComponent = () => {
               ></input>
             </div>
             <div className="login-input">
-              <button className="btn btn-outline-light btn-lg login-button">
+              <button
+                className="btn btn-outline-light btn-lg login-button"
+                onClick={goToManageVenueReq}
+              >
                 Login
               </button>
             </div>

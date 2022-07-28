@@ -2,11 +2,16 @@
 
 import { Autocomplete } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 
 function SearchVenueComponent() {
   let cities = ["Banglore", "Pune", "Nashik", "Mumbai"];
-
+  const navigate = useNavigate(headerContext);
+  function goToBookVenue() {
+    navigate("/bookVenue");
+  }
   return (
     <>
       <div className="rowC">
@@ -56,7 +61,7 @@ function SearchVenueComponent() {
           </tr>
         </thead>
         <tbody style={{ color: "white" }}>
-          <tr>
+          <tr onClick={goToBookVenue}>
             <th scope="row">1</th>
             <td>Magnolia</td>
             <td>Cannaught Place, Delhi</td>

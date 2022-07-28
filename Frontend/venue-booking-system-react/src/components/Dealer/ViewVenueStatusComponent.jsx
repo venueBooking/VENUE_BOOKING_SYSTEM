@@ -1,12 +1,18 @@
 // US-06
 
-import React, { useContext } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 
 function ViewVenueStatusComponent() {
-  const headerC = useContext(headerContext);
-
+  const navigate = useNavigate(headerContext);
+  function goToManageVenueReq() {
+    navigate("/manageVenueRequests");
+  }
+  function goToAddVenue() {
+    navigate("/venueRegistration");
+  }
   return (
     <>
       {/* <div id="container-div"> */}
@@ -26,6 +32,7 @@ function ViewVenueStatusComponent() {
         type="button"
         className="btn btn-outline-secondary"
         id="button-div"
+        onClick={goToAddVenue}
       >
         Add Venue
       </button>
@@ -40,7 +47,7 @@ function ViewVenueStatusComponent() {
           </tr>
         </thead>
         <tbody style={{ color: "white" }}>
-          <tr>
+          <tr onClick={goToManageVenueReq}>
             <th scope="row">1</th>
             <td>Magnolia</td>
             <td>Cannaught Place, Delhi</td>

@@ -1,9 +1,15 @@
 // US_13
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import headerContext from "../../contexts/headerContext";
 import Design from "../../Design";
 import CustomTextField from "../../Supporting_Components/CustomTextField";
 
 function ConfirmPaymentComponent() {
+  const navigate = useNavigate(headerContext);
+  function goToSearchVenue() {
+    navigate("/searchVenue");
+  }
   return (
     <>
       <div id="title-div">
@@ -62,6 +68,7 @@ function ConfirmPaymentComponent() {
           className="btn btn-outline-secondary"
           id="confirm-button-div"
           style={{ marginLeft: "34rem" }}
+          onClick={goToSearchVenue}
         >
           Confirm and send
         </button>

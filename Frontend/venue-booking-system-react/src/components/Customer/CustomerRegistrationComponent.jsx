@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import headerContext from "../../contexts/headerContext";
 
 export const CustomerRegistrationComponent = () => {
+  const navigate = useNavigate(headerContext);
+  function goToCustLogin() {
+    navigate("/customerLogin");
+  }
   return (
     <>
       <div className="app-background">
@@ -69,7 +75,10 @@ export const CustomerRegistrationComponent = () => {
             </div>
 
             <div className="customer-register-input">
-              <button className="btn btn-outline-light btn-lg customer-register-button">
+              <button
+                className="btn btn-outline-light btn-lg customer-register-button"
+                onClick={goToCustLogin}
+              >
                 Register
               </button>
             </div>
