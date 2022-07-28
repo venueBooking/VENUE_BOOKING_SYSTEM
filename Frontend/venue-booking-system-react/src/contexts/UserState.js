@@ -6,22 +6,37 @@ const UserState = (props) => {
         "firstName": "none",
         "lastName": "none",
         "username": "none",
-        "isActive": false
+        "dealerId": -1,
+        "password": "none",
+        "dob": "none"
     }
 
     const [state, setState] = useState(s)
 
-    const updateUser = (fn,ln,un) => {
+    const updateUser = (di, fn, ln, db, un, pw) => {
         setState({
             "firstName": fn,
             "lastName": ln,
             "username": un,
-            "isActive": true
+            "dealerId": di,
+            "password": pw,
+            "dob": db
+        })
+    }
+
+    const logoutUser = () => {
+        setState({
+            "firstName": "none",
+            "lastName": "none",
+            "username": "none",
+            "dealerId": -1,
+            "password": "none",
+            "dob": "none"
         })
     }
 
     return (
-        <userContext.Provider value={{state, updateUser}}>
+        <userContext.Provider value={{ state, updateUser, logoutUser }}>
             {props.children}
         </userContext.Provider>
     )

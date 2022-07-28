@@ -7,10 +7,6 @@ import Design from "../../Design";
 function ViewVenueStatusComponent() {
   const headerC = useContext(headerContext);
 
-  function bringHeader() {
-    headerC.updateDisplayAttribute("block");
-  }
-
   return (
     <>
       {/* <div id="container-div"> */}
@@ -19,7 +15,7 @@ function ViewVenueStatusComponent() {
           style={{
             color: "white",
             fontWeight: "bold",
-            marginTop: "125px",
+            // marginTop: "125px",
           }}
         >
           Manage Your Venues
@@ -30,7 +26,6 @@ function ViewVenueStatusComponent() {
         type="button"
         className="btn btn-outline-secondary"
         id="button-div"
-        onClick={bringHeader}
       >
         Add Venue
       </button>

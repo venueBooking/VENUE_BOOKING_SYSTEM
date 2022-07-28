@@ -8,43 +8,31 @@ export const HeaderComponent = () => {
   const headerC = useContext(headerContext)
   const userC = useContext(userContext)
   const navigate = useNavigate()
-  const [alt, setAlt] = useState(0)
 
   function goToHome() {
-    const userType = headerC.state.userType
 
-    if (userType === "none"){
+    if (headerC.state.userType === "none"){
       headerC.updateDisplayAttribute("none")
       navigate("/")
     }
+    else if (headerC.state.userType === "dealer"){
+      navigate("/viewVenueStatus")
+    }
+    else if (headerC.state.userType === "customer"){
+      navigate("/searchVenue")
+    }
+    else if (headerC.state.userType === "admin"){
+      navigate("/viewUsers")
+    }
   }
 
-  function initiateLogin() {
-    // const userType = headerC.state.userType
-
-    // if (userType === "none"){
-    //   headerC.updateDisplayAttribute("none")
-    //   navigate("/")
-    // }
-  }
-
-  function changeUserType() {
-    if (alt % 4 === 0){
-      headerC.updateUserType("dealer")
-      setAlt(alt+1)
-    }
-    else if (alt % 4 === 1){
-      headerC.updateUserType("customer")
-      setAlt(alt+1)
-    }
-    else if (alt % 4 === 2){
-      headerC.updateUserType("admin")
-      setAlt(alt+1)
-    }
-    else if (alt % 4 === 3){
-      headerC.updateUserType("none")
-      setAlt(alt+1)
-    }
+  function commitLogout() {
+    // console.log("logout status --> ",headerC.state.logoutDisplayAttribute);
+    headerC.updateLogin("none")
+    headerC.updateDisplayAttribute("none")
+    headerC.updateUserType("none")
+    userC.logoutUser()
+    navigate("/")
   }
 
   return (
@@ -79,8 +67,8 @@ export const HeaderComponent = () => {
               <li className="nav-item">
                 <a className="nav-link disabled" href="#">Disabled</a>
               </li> */}
-              <li className="nav-item active">
-                <span className="header-item" onClick={changeUserType}>{headerC.state.userType}</span>
+              <li className="nav-item active" style={{ display: headerC.state.logoutDisplayAttribute }}>
+                <span className="header-item" onClick={commitLogout}>Logout</span>
               </li>
               <li className="nav-item active">
                 <span className="header-item">{userC.state.firstName}</span>
