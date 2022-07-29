@@ -2,6 +2,7 @@ package com.vrs.model;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.Collections;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +46,11 @@ public class Dealer implements UserDetails {
 	@NotNull
 	private Date dob;
 	
-	@Column(name="username")
+	@Column(name="balance")
+	@NotNull
+	private int balance;
+	
+	@Column(name="username",unique=true)
 	@NotEmpty
 	private String username;
 	
@@ -55,7 +60,7 @@ public class Dealer implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return Collections.emptyList();
 	}
 
 	@Override

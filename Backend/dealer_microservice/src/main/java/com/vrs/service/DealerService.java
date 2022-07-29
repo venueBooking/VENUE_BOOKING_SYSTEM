@@ -12,8 +12,6 @@ public interface DealerService extends UserDetailsService{
 	List<Dealer> getDealers();
 
 	Dealer updateDealer(Dealer dealer);
-
-	Dealer addDealer(Dealer dealer);
 	
 	int deleteDealer(int dealerId);
 	

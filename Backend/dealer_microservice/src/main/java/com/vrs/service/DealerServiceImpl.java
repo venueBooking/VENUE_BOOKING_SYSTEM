@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.vrs.model.Dealer;
@@ -22,12 +23,7 @@ public class DealerServiceImpl implements DealerService{
 	
 	@Override
 	public Dealer updateDealer(Dealer dealer) {
-		dealerRepository.save(dealer);
-		return dealer;
-	}
-	
-	@Override
-	public Dealer addDealer(Dealer dealer) {
+		dealer.setPassword(new BCryptPasswordEncoder(10).encode(dealer.getPassword()));
 		dealerRepository.save(dealer);
 		return dealer;
 	}
