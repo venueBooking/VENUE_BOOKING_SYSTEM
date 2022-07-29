@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -41,12 +42,37 @@ public class AdminSecurityConfig
     }
 
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/authenticate").permitAll().anyRequest().authenticated().and()
-                .exceptionHandling().and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        httpSecurity.addFilterBefore(jwtRequestFilter,
-                UsernamePasswordAuthenticationFilter.class);
+    protected void configure(HttpSecurity http) throws Exception {
+//        httpSecurity.csrf().disable()
+//                .authorizeRequests().antMatchers("/authenticate").permitAll().anyRequest().authenticated().and()
+//                .exceptionHandling().and().sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        httpSecurity.addFilterBefore(jwtRequestFilter,
+//                UsernamePasswordAuthenticationFilter.class);
+    	http
+    	.csrf()
+    	.disable()
+    	.cors()
+    	.and()
+//    	.disable()
+    	.authorizeRequests()
+    	.anyRequest().authenticated()
+    	.and()
+    	.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    
+    http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**",
+                "/h2/**",
+                "/authenticate",
+                "/getAllDealers/**" // <-- Remove this later, for testing purposes only
+               );
     }
 }

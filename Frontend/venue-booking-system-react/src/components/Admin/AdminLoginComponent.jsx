@@ -4,8 +4,8 @@ import headerContext from "../../contexts/headerContext";
 
 export const AdminLoginComponent = () => {
   const navigate = useNavigate(headerContext);
-  function goToManageVenueReq() {
-    navigate("/manageVenueRequests");
+  function goToViewUser() {
+    navigate("/viewUser");
   }
   return (
     <>
@@ -32,7 +32,7 @@ export const AdminLoginComponent = () => {
             <div className="login-input">
               <button
                 className="btn btn-outline-light btn-lg login-button"
-                onClick={goToManageVenueReq}
+                onClick={goToViewUser}
               >
                 Login
               </button>

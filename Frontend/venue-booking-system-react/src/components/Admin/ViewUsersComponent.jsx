@@ -1,8 +1,31 @@
 // US_12
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Design from "../../Design";
+import AdminService from "../../Services/AdminService";
 
 function ViewUsersComponent() {
+  const [dealers, setDealers] = useState([]);
+  const [isdealers, setIsDealers] = useState([]);
+  const [isCustomer, setIsCustomer] = useState([]);
+
+  function dealerButtonClicked() {
+    setIsDealers(true);
+    setIsCustomer(false);
+  }
+  function userButtonClicked() {
+    console.log("user button clicked");
+    setIsDealers(false);
+    setIsCustomer(true);
+  }
+
+  useEffect(() => {
+    getDealers();
+  }, []);
+  const getDealers = () => {
+    AdminService.getDealers().then((response) => {
+      setDealers(response.data);
+    });
+  };
   return (
     <>
       <div id="title-admin-div">
@@ -20,6 +43,7 @@ function ViewUsersComponent() {
         type="button"
         className="btn btn-outline-secondary"
         id="button-user-admin-div"
+        onClick={userButtonClicked}
       >
         Users
       </button>
@@ -27,42 +51,61 @@ function ViewUsersComponent() {
         type="button"
         className="btn btn-outline-secondary"
         id="button-div"
+        onClick={dealerButtonClicked}
       >
         Dealers
       </button>
-      <table
-        className="table table-bordered text-center "
-        id="view-user-admin-table"
-      >
-        <thead>
-          <tr style={{ color: "black", fontWeight: "bold" }}>
-            <th scope="col">Profile ID</th>
-            <th scope="col">User Name</th>
-            <th scope="col">DOB</th>
-            <th scope="col">Venues Booked</th>
-          </tr>
-        </thead>
-        <tbody style={{ color: "white" }}>
-          <tr>
-            <th scope="row">123456</th>
-            <td>Dummy Name #1</td>
-            <td>02/07/1999/</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <th scope="row">123457</th>
-            <td>Dummy Name #2</td>
-            <td>02/07/1998</td>
-            <td>0</td>
-          </tr>
-        </tbody>
-      </table>
+      {isCustomer ? (
+        <table
+          className="table table-bordered text-center "
+          id="view-user-admin-table"
+        >
+          <thead>
+            <tr style={{ color: "black", fontWeight: "bold" }}>
+              <th scope="col">Dealer ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">DOB</th>
 
+              <th scope="col">Venues Booked</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dealers.map((dealers) => (
+              <tr key={dealers.dealerId}>
+                <td> {dealers.dealerId}</td>
+                <td> {dealers.firstName + " " + dealers.lastName}</td>
+                <td> {dealers.dob}</td>
+                <td> {1}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <table
+          className="table table-bordered text-center "
+          id="view-user-admin-table"
+        >
+          <thead>
+            <tr style={{ color: "black", fontWeight: "bold" }}>
+              <th scope="col">Dealer ID</th>
+              <th scope="col">User Name</th>
+              <th scope="col">DOB</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dealers.map((dealers) => (
+              <tr key={dealers.dealerId}>
+                <td> {dealers.dealerId}</td>
+                <td> {dealers.firstName + " " + dealers.lastName}</td>
+                <td> {dealers.dob}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
       <Design />
     </>
   );
 }
 
 export default ViewUsersComponent;
-
-

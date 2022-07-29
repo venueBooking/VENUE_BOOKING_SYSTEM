@@ -9,7 +9,6 @@ function RequestPaymentComponent() {
 
   function goToConfirmPayment() {
     navigate("/confirmPayment");
-    // alert(headerC.state.userType)
   }
   return (
     <>
