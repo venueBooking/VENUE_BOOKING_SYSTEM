@@ -81,7 +81,7 @@ textarea:focus {
   width: 40px;
   height: 40px;
   background-color: red;
-  margin-top: 80px;
+  margin-top: 130px;
   right: 75px;
 }
 #notification-text {
@@ -491,14 +491,7 @@ input[type="checkbox"] {
 
 /* ------------Venue Registration Page------------ */
 
-::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: rgba(255, 255, 255, 0.5);
-}
 
-::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-}
 /* <<<<<<< HEAD */
 /*------------------ View users admin component --------------*/
 #view-user-admin-table {
@@ -735,4 +728,20 @@ input[type="checkbox"] {
   width: 32vw;
   display: flex;
   justify-content: space-evenly;
+}
+
+
+/*---------------- Input Icons Customization --------------*/
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+::-ms-reveal {
+  filter: invert(100%);
 }

@@ -14,20 +14,20 @@ function SearchVenueComponent() {
   }
   return (
     <>
-      <div className="rowC">
+      {/* <div className="rowC"> */}
         <div id="title-div">
           <h2
             style={{
               color: "white",
               fontWeight: "bold",
-              marginTop: "75px",
+              // marginTop: "75px",
             }}
           >
             Search venues by location
           </h2>
         </div>
         {/* <CustomButton text="Add"/> */}
-        <div id="search" style={{ marginLeft: "550px", marginTop: "70px" }}>
+        <div id="search" style={{ marginLeft: "550px", marginTop: "130px" }}>
           <div id="search-input-div">
             <Autocomplete
               id="autocomplete-div"
@@ -49,7 +49,7 @@ function SearchVenueComponent() {
         <div class="test rounded-circle ">
           <h2 id="notification-text">2</h2>
         </div>
-      </div>
+      {/* </div> */}
 
       <table className="table table-bordered text-center " id="table-div">
         <thead>

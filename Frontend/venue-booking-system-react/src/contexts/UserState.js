@@ -8,19 +8,21 @@ const UserState = (props) => {
         "username": "none",
         "dealerId": -1,
         "password": "none",
-        "dob": "none"
+        "dob": "none",
+        "balance": -1
     }
 
     const [state, setState] = useState(s)
 
-    const updateUser = (di, fn, ln, db, un, pw) => {
+    const updateUser = (di, fn, ln, db, un, pw, ba) => {
         setState({
             "firstName": fn,
             "lastName": ln,
             "username": un,
             "dealerId": di,
             "password": pw,
-            "dob": db
+            "dob": db,
+            "balance": ba
         })
     }
 
@@ -31,7 +33,8 @@ const UserState = (props) => {
             "username": "none",
             "dealerId": -1,
             "password": "none",
-            "dob": "none"
+            "dob": "none",
+            "balance": -1
         })
     }
 

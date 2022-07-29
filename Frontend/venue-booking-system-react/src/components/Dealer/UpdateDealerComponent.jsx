@@ -1,56 +1,142 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import headerContext from "../../contexts/headerContext";
+import userContext from "../../contexts/userContext";
+import DealerService from "../../Services/DealerService";
 
 export const UpdateDealerComponent = () => {
+
+  const userC = useContext(userContext)
+  const headerC = useContext(headerContext)
+  const navigate = useNavigate()
+
+  async function startUpdate(event) {
+    event.preventDefault()
+
+    const newDealer = {
+      "dealerId": userC.state.dealerId,
+      "firstName": document.getElementById("dealer-update-firstname").value,
+      "lastName": document.getElementById("dealer-update-lastname").value,
+      "dob": document.getElementById("dealer-update-dob").value,
+      "balance": userC.state.balance,
+      "username": userC.state.username,
+      "password": userC.state.password
+    }
+
+    console.log("start update dealer --> ", newDealer);
+
+    if (newDealer.password != document.getElementById("dealer-update-password").value) {
+      alert("Wrong Password!")
+      return
+    }
+
+    var response = await DealerService.updateDealer(newDealer, headerC.state.jwtToken)
+    console.log("update response --> ", response);
+
+    if (response != "") {
+      alert("Account updated successfully")
+      userC.updateUser(
+        newDealer.dealerId,
+        newDealer.firstName,
+        newDealer.lastName,
+        newDealer.dob,
+        newDealer.username,
+        newDealer.password,
+        newDealer.balance
+      )
+    }
+    else {
+      alert("Failed to create account")
+    }
+  }
+
+  async function startDelete(event) {
+    event.preventDefault()
+    
+    var username = userC.state.username
+
+    if (userC.state.password != document.getElementById("dealer-update-password").value) {
+      alert("Wrong Password!")
+      return
+    }
+
+    var response = await DealerService.deleteDealer(username, headerC.state.jwtToken)
+    console.log("update response --> ", response);
+
+    if (response != "") {
+      alert("Account deleted successfully")
+      headerC.updateLogin("none")
+      headerC.updateDisplayAttribute("none")
+      headerC.updateUserType("none")
+      userC.logoutUser()
+      navigate("/")
+    }
+    else {
+      alert("Failed to delete")
+    }
+  }
+
   return (
     <>
       <div className="app-background">
-        <form>
+        <form onSubmit={startUpdate}>
           <div className="inner-box">
             <span className="dealer-update-span-header">Edit Profile</span>
 
-            <div id="survey1">
+            <div className='dealer-registration-input-row'>
               <div className="reg-form">
                 <span className="dealer-update-span-input">First Name</span>
                 <input
                   type="text"
+                  id="dealer-update-firstname"
                   className="dealer-update-input-field"
                   placeholder="Enter firstname"
+                  defaultValue={userC.state.firstName}
                 ></input>
               </div>
               <div className="reg-form">
                 <span className="dealer-update-span-input">Last Name</span>
                 <input
                   type="text"
+                  id="dealer-update-lastname"
                   className="dealer-update-input-field"
                   placeholder="Enter lastname"
-                ></input>
-              </div>
-              <div className="reg-form">
-                <span className="dealer-update-span-input">Date of Birth</span>
-                <input
-                  type="date"
-                  className="dealer-update-input-field"
-                  placeholder="Enter DOB"
+                  defaultValue={userC.state.lastName}
                 ></input>
               </div>
             </div>
 
-            <div id="survey2">
+            <div className='dealer-registration-input-row'>
+              <div className="reg-form">
+                <span className="dealer-update-span-input">Date of Birth</span>
+                <input
+                  type="date"
+                  id="dealer-update-dob"
+                  className="dealer-update-input-field"
+                  placeholder="Enter DOB"
+                  defaultValue={userC.state.dob}
+                  style={{ paddingRight: "1vw" }}
+                ></input>
+              </div>
+
               <div>
                 <span className="dealer-update-span-input">Password</span>
                 <input
                   type="password"
+                  id="dealer-update-password"
                   className="dealer-update-input-field"
                   placeholder="Enter password"
+                  style={{ paddingRight: "1vw" }}
+                  required
                 ></input>
               </div>
             </div>
 
             <div className="dealer-update-input">
-              <button className="btn btn-outline-light btn-lg dealer-update-button">
+              <button className="btn btn-outline-light btn-lg dealer-login-button">
                 Save
               </button>
-              <button className="btn btn-outline-light btn-lg dealer-update-button">
+              <button className="btn btn-outline-light btn-lg dealer-login-button" onClick={startDelete}>
                 Delete Profile
               </button>
             </div>

@@ -26,6 +26,17 @@ export const HeaderComponent = () => {
     }
   }
 
+  function goToUpdateProfile() {
+
+    if (headerC.state.userType === "dealer"){
+      navigate("/updateDealer")
+    }
+    else if (headerC.state.userType === "customer"){
+      navigate("/updateCustomer")
+    }
+    
+  }
+
   function commitLogout() {
     // console.log("logout status --> ",headerC.state.logoutDisplayAttribute);
     headerC.updateLogin("none")
@@ -70,8 +81,8 @@ export const HeaderComponent = () => {
               <li className="nav-item active" style={{ display: headerC.state.logoutDisplayAttribute }}>
                 <span className="header-item" onClick={commitLogout}>Logout</span>
               </li>
-              <li className="nav-item active">
-                <span className="header-item">{userC.state.firstName}</span>
+              <li className="nav-item active" style={{ display: headerC.state.logoutDisplayAttribute }}>
+                <span className="header-item" onClick={goToUpdateProfile}>{userC.state.firstName}</span>
               </li>
             </ul>
           </div>
