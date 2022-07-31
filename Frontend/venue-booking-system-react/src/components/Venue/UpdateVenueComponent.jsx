@@ -1,7 +1,7 @@
 import { FormGroup } from "@mui/material";
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import headerContext from "../../contexts/headerContext";
+import React, { useEffect } from "react";
 import Design from "../../Design";
 import CustomCheckBox from "../../Supporting_Components/CustomCheckBox";
 import CustomTextField from "../../Supporting_Components/CustomTextField";
@@ -14,6 +14,9 @@ function UpdateVenueComponent() {
   function goToViewVenueStatus() {
     navigate("/viewVenueStatus");
   }
+  useEffect(()=>{
+    document.title="Update Venue"
+  },[])
   return (
     <>
       <div id="title-div">
