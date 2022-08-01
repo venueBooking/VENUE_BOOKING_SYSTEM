@@ -1,6 +1,4 @@
 package com.venue.venue_module.entities;
-
-import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -20,10 +18,11 @@ public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long bookingId;
-	private LocalDate dateFrom;
-	private LocalDate dateTo;
 	private long venueId;
 	private long customerId;
+	private LocalDate dateFrom;
+	private LocalDate dateTo;
+	private int bookingRequest;
 	public long getBookingId() {
 		return bookingId;
 	}
@@ -54,13 +53,23 @@ public class Booking {
 	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
-	public Booking(long bookingId, LocalDate dateFrom, LocalDate dateTo, long venueId, long customerId) {
+	
+	public int getBookingRequest() {
+		return bookingRequest;
+	}
+	public void setBookingRequest(int bookingRequest) {
+		this.bookingRequest = bookingRequest;
+	}
+	
+	public Booking(long bookingId, long venueId, long customerId, LocalDate dateTo, LocalDate dateFrom,
+			int bookingRequest) {
 		super();
 		this.bookingId = bookingId;
-		this.dateFrom = dateFrom;
-		this.dateTo = dateTo;
 		this.venueId = venueId;
 		this.customerId = customerId;
+		this.dateTo = dateTo;
+		this.dateFrom = dateFrom;
+		this.bookingRequest = bookingRequest;
 	}
 	public Booking() {
 		super();

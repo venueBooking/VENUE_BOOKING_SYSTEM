@@ -52,7 +52,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/webjars/**",
                 "/h2/**",
                 "/authenticate",
-                "/addAllDealer/**", 	// <-- Remove this later, for testing purposes only
+                "/addAllDealer/**", 
+                "/getAllDealers/**", // <-- Remove this later, for testing purposes only
                 "/addDealer/**");
     }
 	

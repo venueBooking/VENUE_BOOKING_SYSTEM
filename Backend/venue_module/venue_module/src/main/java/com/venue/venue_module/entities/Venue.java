@@ -1,6 +1,5 @@
 package com.venue.venue_module.entities;
 
-//import java.util.LinkedHashMap;
 
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
@@ -9,34 +8,40 @@ import javax.persistence.GeneratedValue;
 
 @Entity
 public class Venue {
-	
-	private String venuename;
-	private String venuelocation;
-	private int capacity;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long venueId;
+	private String venuename;
+	private String venuelocation;
+	private int capacity;
+	private int dealerId;	
+	private boolean banquetAmenity;
+	private boolean diningAmenity;
+	private boolean parkingAmenity;
+
 	
-//	private LinkedHashMap<String, String> aminitiesoptions;
-//	private String[] aminities;
-//	public Venue() {
-//		aminitiesoptions=new LinkedHashMap<String,String>();
-//		aminitiesoptions.put("parking","parking");
-//		aminitiesoptions.put("dinning","dinning");
-//		
-//	}
-	public Venue(String venuename, String venuelocation, int capacity) {
+	public Venue(long venueId, String venuename, String venuelocation, int capacity, int dealerId,
+			boolean banquetAmenity, boolean diningAmenity, boolean parkingAmenity) {
 		super();
+		this.venueId = venueId;
 		this.venuename = venuename;
 		this.venuelocation = venuelocation;
 		this.capacity = capacity;
-//		this.venueId = venueId;
+		this.dealerId = dealerId;
+		this.banquetAmenity = banquetAmenity;
+		this.diningAmenity = diningAmenity;
+		this.parkingAmenity = parkingAmenity;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Venue [venuename=" + venuename + ", venuelocation=" + venuelocation + ", capacity=" + capacity
-				+  "]";
+		return "Venue [venueId=" + venueId + ", venuename=" + venuename + ", venuelocation=" + venuelocation
+				+ ", capacity=" + capacity + ", dealerId=" + dealerId + ", banquetAmenity=" + banquetAmenity
+				+ ", diningAmenity=" + diningAmenity + ", parkingAmenity=" + parkingAmenity + "]";
 	}
+
+
 	public String getVenuename() {
 		return venuename;
 	}
@@ -56,27 +61,35 @@ public class Venue {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-//	public Venue() {
-//		super();
-//		// TODO Auto-generated constructor stub
-//	}
+
 	public long getVenueId() {
 		return venueId;
 	}
 	public void setVenueId(long venueId) {
 		this.venueId = venueId;
 	}
-//	public String[] getAminities() {
-//		return aminities;
-//	}
-//	public void setAminities(String[] aminities) {
-//		this.aminities = aminities;
-//	}
-//	public LinkedHashMap<String, String> getAminitiesoptions() {
-//		return aminitiesoptions;
-//	}
-//	public void setAminitiesoptions(LinkedHashMap<String, String> aminitiesoptions) {
-//		this.aminitiesoptions = aminitiesoptions;
-//	}
-
+	public boolean isBanquetAmenity() {
+		return banquetAmenity;
+	}
+	public void setBanquetAmenity(boolean banquetAmenity) {
+		this.banquetAmenity = banquetAmenity;
+	}
+	public boolean isDiningAmenity() {
+		return diningAmenity;
+	}
+	public void setDiningAmenity(boolean diningAmenity) {
+		this.diningAmenity = diningAmenity;
+	}
+	public boolean isParkingAmenity() {
+		return parkingAmenity;
+	}
+	public void setParkingAmenity(boolean parkingAmenity) {
+		this.parkingAmenity = parkingAmenity;
+	}
+	public int getDealerId() {
+		return dealerId;
+	}
+	public void setDealerId(int dealerId) {
+		this.dealerId = dealerId;
+	}
 }
