@@ -73,7 +73,6 @@ export const DealerLoginComponent = () => {
             <div className="dealer-login-input">
               <button
                 className="btn btn-outline-light btn-lg dealer-login-button"
-                onClick={goToViewVenueStatus}
               >
                 Login
               </button>
