@@ -6,17 +6,19 @@ const HeaderState = (props) => {
         "userType": "none",
         "displayAttribute": "block",    // <-- Set this to none, for testing purposes 
         "logoutDisplayAttribute": "none",
-        "jwtToken": "none"
+        "jwtToken": "none",
+        "displayName": "Login"
     }
 
     const [state, setState] = useState(s)
 
-    const updateUserType = (un) => {
+    const updateUserType = (un, dn) => {
         setState((prev) => ({
             "userType": un,
             "displayAttribute": prev.displayAttribute,
             "logoutDisplayAttribute": prev.logoutDisplayAttribute,
-            "jwtToken": prev.jwtToken
+            "jwtToken": prev.jwtToken,
+            "displayName": dn
         }))
     }
 
@@ -25,7 +27,8 @@ const HeaderState = (props) => {
             "userType": prev.userType,
             "displayAttribute": da,
             "logoutDisplayAttribute": prev.logoutDisplayAttribute,
-            "jwtToken": prev.jwtToken
+            "jwtToken": prev.jwtToken,
+            "displayName": prev.displayName
         }))
     }
 
@@ -34,7 +37,8 @@ const HeaderState = (props) => {
             "userType": prev.userType,
             "displayAttribute": prev.displayAttribute,
             "logoutDisplayAttribute": prev.logoutDisplayAttribute,
-            "jwtToken": jt
+            "jwtToken": jt,
+            "displayName": prev.displayName
         }))
     }
 
@@ -43,7 +47,8 @@ const HeaderState = (props) => {
             "userType": prev.userType,
             "displayAttribute": prev.displayAttribute,
             "logoutDisplayAttribute": lda,
-            "jwtToken": prev.jwtToken
+            "jwtToken": prev.jwtToken,
+            "displayName": prev.displayName
         }))
     }
 

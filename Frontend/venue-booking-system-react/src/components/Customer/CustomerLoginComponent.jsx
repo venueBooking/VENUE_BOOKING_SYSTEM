@@ -1,57 +1,82 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import headerContext from "../../contexts/headerContext";
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import headerContext from '../../contexts/headerContext'
+import customerContext from '../../contexts/customerContext'
+import CustomerService from '../../Services/CustomerService'
 
 export const CustomerLoginComponent = () => {
-  const navigate = useNavigate(headerContext);
-  function goToCustRegistration() {
-    navigate("/customerRegistration");
+
+  const navigate = useNavigate(headerContext)
+  const customerC = useContext(customerContext)
+  const headerC = useContext(headerContext)
+
+  function goToCustomerRegistration() {
+    navigate("/customerRegistration")
   }
-  function goToSearchVenue() {
-    navigate("/searchVenue");
+
+  async function startCustomerLogin(event) {
+    event.preventDefault();
+    var response
+    var customer
+
+    const credentials = {
+      "username": document.getElementById("customer-login-username").value,
+      "password": document.getElementById("customer-login-password").value
+    }
+
+   
+    response = await CustomerService.getToken(credentials)
+    console.log("JWT token --> ", response);
+    headerC.updateJwtToken(response.data)
+
+    // console.log("header context jwtToken --> ", headerC.state.jwtToken);
+    if (response != "") {
+      customer = await CustomerService.getCustomerData(response.data)
+      // console.log("customer --> ", customer.data);
+
+      console.log("Reached Here!!!");
+
+      customerC.updateCustomer(
+        customer.data.customerId,
+        customer.data.firstName,
+        customer.data.lastName,
+        customer.data.dob,
+        customer.data.username,
+        credentials.password,
+        customer.data.balance
+      )
+
+      headerC.updateLogin("block")
+      headerC.updateUserType("customer",customer.data.firstName)
+      navigate("/searchVenue")
+    }
+    else {
+      alert("Bad Credentials")
+    }
   }
+
   return (
     <>
       <div className="app-background">
-        <form>
+        <form onSubmit={startCustomerLogin}>
           <div className="inner-box">
-            <span className="login-span-header">
-              Welcome Back, login to continue
-            </span>
+            <span className="dealer-login-span-header">Welcome Back! Login to continue</span>
             <div>
-              <span className="login-span-input">Username</span>
-              <input
-                type="text"
-                className="login-input-field"
-                placeholder="Enter username"
-              ></input>
+              <span className="dealer-login-span-input">Username</span>
+              <input type="text" className="dealer-login-input-field" id="customer-login-username" placeholder='Enter username' required></input>
             </div>
             <div>
-              <span className="login-span-input">Password</span>
-              <input
-                type="password"
-                className="login-input-field"
-                placeholder="Enter password"
-              ></input>
+              <span className="dealer-login-span-input">Password</span>
+              <input type="password" className="dealer-login-input-field" id="customer-login-password" placeholder='Enter password' required></input>
             </div>
-            <div className="login-input">
-              <button
-                className="btn btn-outline-light btn-lg login-button"
-                onClick={goToSearchVenue}
-              >
-                Login
-              </button>
-              <button
-                className="btn btn-outline-light btn-lg login-button"
-                onClick={goToCustRegistration}
-              >
-                Register
-              </button>
+            <div className="dealer-login-input">
+              <button className='btn btn-outline-light btn-lg dealer-login-button'>Login</button>
+              <button className='btn btn-outline-light btn-lg dealer-login-button' onClick={goToCustomerRegistration}>Register</button>
             </div>
           </div>
         </form>
       </div>
       {/* <div>Customer Login Component</div> */}
     </>
-  );
-};
+  )
+}

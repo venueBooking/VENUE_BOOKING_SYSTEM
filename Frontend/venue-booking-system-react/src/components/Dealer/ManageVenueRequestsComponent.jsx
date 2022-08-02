@@ -16,7 +16,6 @@ function ManageVenueRequestsComponent() {
         style={{
             color: "white",
             fontWeight: "bold",
-            marginTop: "125px",
             marginLeft:"20px",
         }}>
         Magnolia

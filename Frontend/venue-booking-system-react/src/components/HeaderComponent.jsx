@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import headerContext from '../contexts/headerContext'
+import customerContext from '../contexts/customerContext'
 import userContext from '../contexts/userContext'
 
 export const HeaderComponent = () => {
 
   const headerC = useContext(headerContext)
   const userC = useContext(userContext)
+  const customerC = useContext(customerContext)
   const navigate = useNavigate()
 
   function goToHome() {
@@ -27,11 +29,11 @@ export const HeaderComponent = () => {
   }
 
   function goToUpdateProfile() {
-
     if (headerC.state.userType === "dealer"){
       navigate("/updateDealer")
     }
     else if (headerC.state.userType === "customer"){
+      console.log(customerC.state);
       navigate("/updateCustomer")
     }
     
@@ -39,10 +41,15 @@ export const HeaderComponent = () => {
 
   function commitLogout() {
     // console.log("logout status --> ",headerC.state.logoutDisplayAttribute);
+    if (headerC.state.userType === "dealer"){
+      userC.logoutUser()
+    }
+    else if (headerC.state.userType === "customer"){
+      customerC.logoutCustomer()
+    }
     headerC.updateLogin("none")
     headerC.updateDisplayAttribute("none")
     headerC.updateUserType("none")
-    userC.logoutUser()
     navigate("/")
   }
 
@@ -82,7 +89,7 @@ export const HeaderComponent = () => {
                 <span className="header-item" onClick={commitLogout}>Logout</span>
               </li>
               <li className="nav-item active" style={{ display: headerC.state.logoutDisplayAttribute }}>
-                <span className="header-item" onClick={goToUpdateProfile}>{userC.state.firstName}</span>
+                <span className="header-item" onClick={goToUpdateProfile}>{headerC.state.displayName}</span>
               </li>
             </ul>
           </div>

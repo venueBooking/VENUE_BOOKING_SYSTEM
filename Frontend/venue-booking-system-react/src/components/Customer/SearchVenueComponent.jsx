@@ -46,7 +46,7 @@ function SearchVenueComponent() {
             ></Autocomplete>
           </div>
         </div>
-        <div class="test rounded-circle ">
+        <div className="test rounded-circle ">
           <h2 id="notification-text">2</h2>
         </div>
       {/* </div> */}

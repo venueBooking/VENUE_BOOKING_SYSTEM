@@ -40,7 +40,8 @@ export const DealerLoginComponent = () => {
       dealer.data.lastName,
       dealer.data.dob,
       dealer.data.username,
-      dealer.data.password
+      credentials.password,
+      dealer.data.balance
     );
 
     // response = await VenueService.getToken(credentials);

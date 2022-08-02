@@ -20,16 +20,17 @@ import UpdateVenueComponent from "./components/Venue/UpdateVenueComponent";
 import { VenueRegistrationComponent } from "./components/Venue/VenueRegistrationComponent";
 import HeaderState from "./contexts/HeaderState";
 import UserState from "./contexts/UserState";
-import VenueState from "./contexts/VenueState";
+import CustomerState from "./contexts/CustomerState";
+import { UpdateCustomerComponent } from "./components/Customer/UpdateCustomerComponent";
 function App() {
   return (
     <HeaderState>
-      <VenueState>
-        <UserState>
-          <Router>
-            <div id="main-flex">
-              {/* Header Component */}
-              <HeaderComponent />
+      <UserState>
+      <CustomerState>
+      <Router>
+        <div id="main-flex">
+          {/* Header Component */}
+          <HeaderComponent />
 
               <Routes>
                 {/* Landing Component */}
@@ -78,32 +79,29 @@ function App() {
                 />
                 <Route path="/updateVenue" element={<UpdateVenueComponent />} />
 
-                {/* Customer components */}
-                <Route
-                  path="/customerLogin"
-                  element={<CustomerLoginComponent />}
-                />
-                <Route
-                  path="/customerRegistration"
-                  element={<CustomerRegistrationComponent />}
-                />
-                <Route path="/searchVenue" element={<SearchVenueComponent />} />
-                <Route path="/bookVenue" element={<BookVenueComponent />} />
-                {/*<Route path="/updateCustomer" element={<UpdateCustomerComponent />} /> */}
-                <Route
-                  path="/confirmPayment"
-                  element={<ConfirmPaymentComponent />}
-                />
-                {/* Admin components */}
+            {/* Customer components */}
+            <Route path="/customerLogin" element={<CustomerLoginComponent />} />
+            <Route
+              path="/customerRegistration"
+              element={<CustomerRegistrationComponent />}
+            />
+            <Route path="/searchVenue" element={<SearchVenueComponent />} />
+            <Route path="/bookVenue" element={<BookVenueComponent />} />
+            <Route path="/updateCustomer" element={<UpdateCustomerComponent />} />
+            <Route
+              path="/confirmPayment"
+              element={<ConfirmPaymentComponent />}
+            />
+            {/* Admin components */}
 
                 <Route path="/viewUser" element={<ViewUsersComponent />} />
 
-                <Route path="/adminLogin" element={<AdminLoginComponent />} />
-              </Routes>
-            </div>
-          </Router>
-        </UserState>
-      </VenueState>
+            <Route path="/adminLogin" element={<AdminLoginComponent />} />
+          </Routes>
+        </div>
+      </Router>
+      </CustomerState>
+      </UserState>
     </HeaderState>
   );
 }

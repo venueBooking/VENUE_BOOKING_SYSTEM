@@ -744,12 +744,18 @@ input[type="checkbox"] {
   filter: invert(100%);
 }
 
-/*---------------- Table Row Styling --------------*/
-
-tbody > tr {
-  transition: background-color 0.16s ease-in-out;
+/*---------------- Custom row highlighter --------------*/
+tbody>tr {
+  transition: all 0.16s ease-in-out;
+  transition-property: background-color, color;
 }
 
-tbody > tr:hover {
+tbody>tr:hover {
   background-color: rgba(255, 255, 255, 0.304);
+  color: black;
+}
+
+tbody>tr:active {
+  background-color: rgba(255, 255, 255, 0.733);
+  color: black;
 }
