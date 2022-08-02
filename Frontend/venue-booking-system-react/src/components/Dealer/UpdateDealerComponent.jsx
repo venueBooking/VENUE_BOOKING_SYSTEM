@@ -1,40 +1,45 @@
 import React, { useContext } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import headerContext from "../../contexts/headerContext";
 import userContext from "../../contexts/userContext";
 import DealerService from "../../Services/DealerService";
 
 export const UpdateDealerComponent = () => {
-
-  const userC = useContext(userContext)
-  const headerC = useContext(headerContext)
-  const navigate = useNavigate()
+  const userC = useContext(userContext);
+  const headerC = useContext(headerContext);
+  const navigate = useNavigate();
 
   async function startUpdate(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     const newDealer = {
-      "dealerId": userC.state.dealerId,
-      "firstName": document.getElementById("dealer-update-firstname").value,
-      "lastName": document.getElementById("dealer-update-lastname").value,
-      "dob": document.getElementById("dealer-update-dob").value,
-      "balance": userC.state.balance,
-      "username": userC.state.username,
-      "password": userC.state.password
-    }
+      dealerId: userC.state.dealerId,
+      firstName: document.getElementById("dealer-update-firstname").value,
+      lastName: document.getElementById("dealer-update-lastname").value,
+      dob: document.getElementById("dealer-update-dob").value,
+      balance: userC.state.balance,
+      username: userC.state.username,
+      password: userC.state.password,
+    };
 
     console.log("start update dealer --> ", newDealer);
 
-    if (newDealer.password != document.getElementById("dealer-update-password").value) {
-      alert("Wrong Password!")
-      return
+    if (
+      newDealer.password !==
+      document.getElementById("dealer-update-password").value
+    ) {
+      alert("Wrong Password!");
+      return;
     }
 
-    var response = await DealerService.updateDealer(newDealer, headerC.state.jwtToken)
+    var response = await DealerService.updateDealer(
+      newDealer,
+      headerC.state.jwtToken
+    );
     console.log("update response --> ", response);
 
-    if (response != "") {
-      alert("Account updated successfully")
+    if (response !== "") {
+      alert("Account updated successfully");
       userC.updateUser(
         newDealer.dealerId,
         newDealer.firstName,
@@ -43,36 +48,40 @@ export const UpdateDealerComponent = () => {
         newDealer.username,
         newDealer.password,
         newDealer.balance
-      )
-    }
-    else {
-      alert("Failed to create account")
+      );
+    } else {
+      alert("Failed to create account");
     }
   }
 
   async function startDelete(event) {
-    event.preventDefault()
-    
-    var username = userC.state.username
+    event.preventDefault();
 
-    if (userC.state.password != document.getElementById("dealer-update-password").value) {
-      alert("Wrong Password!")
-      return
+    var username = userC.state.username;
+
+    if (
+      userC.state.password !==
+      document.getElementById("dealer-update-password").value
+    ) {
+      alert("Wrong Password!");
+      return;
     }
 
-    var response = await DealerService.deleteDealer(username, headerC.state.jwtToken)
+    var response = await DealerService.deleteDealer(
+      username,
+      headerC.state.jwtToken
+    );
     console.log("update response --> ", response);
 
-    if (response != "") {
-      alert("Account deleted successfully")
-      headerC.updateLogin("none")
-      headerC.updateDisplayAttribute("none")
-      headerC.updateUserType("none")
-      userC.logoutUser()
-      navigate("/")
-    }
-    else {
-      alert("Failed to delete")
+    if (response !== "") {
+      alert("Account deleted successfully");
+      headerC.updateLogin("none");
+      headerC.updateDisplayAttribute("none");
+      headerC.updateUserType("none");
+      userC.logoutUser();
+      navigate("/");
+    } else {
+      alert("Failed to delete");
     }
   }
 
@@ -83,7 +92,7 @@ export const UpdateDealerComponent = () => {
           <div className="inner-box">
             <span className="dealer-update-span-header">Edit Profile</span>
 
-            <div className='dealer-registration-input-row'>
+            <div className="dealer-registration-input-row">
               <div className="reg-form">
                 <span className="dealer-update-span-input">First Name</span>
                 <input
@@ -106,7 +115,7 @@ export const UpdateDealerComponent = () => {
               </div>
             </div>
 
-            <div className='dealer-registration-input-row'>
+            <div className="dealer-registration-input-row">
               <div className="reg-form">
                 <span className="dealer-update-span-input">Date of Birth</span>
                 <input
@@ -136,7 +145,10 @@ export const UpdateDealerComponent = () => {
               <button className="btn btn-outline-light btn-lg dealer-login-button">
                 Save
               </button>
-              <button className="btn btn-outline-light btn-lg dealer-login-button" onClick={startDelete}>
+              <button
+                className="btn btn-outline-light btn-lg dealer-login-button"
+                onClick={startDelete}
+              >
                 Delete Profile
               </button>
             </div>

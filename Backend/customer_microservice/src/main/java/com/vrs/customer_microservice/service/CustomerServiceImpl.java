@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.vrs.customer_microservice.model.Customer;
@@ -13,18 +12,23 @@ import com.vrs.customer_microservice.repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-	
+
 	@Autowired
 	CustomerRepository customerRepository;
-	
+
 	@Override
 	public List<Customer> getCustomers() {
 		return customerRepository.findAll();
 	}
-	
+
 	@Override
 	public Customer updateCustomer(Customer customer) {
-		customer.setPassword(new BCryptPasswordEncoder(10).encode(customer.getPassword()));
+		customerRepository.save(customer);
+		return customer;
+	}
+
+	@Override
+	public Customer addCustomer(Customer customer) {
 		customerRepository.save(customer);
 		return customer;
 	}
@@ -34,8 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 		try {
 			customerRepository.deleteById(customerId);
 			return customerId;
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			return -1;
 		}
 	}
@@ -49,9 +52,8 @@ public class CustomerServiceImpl implements CustomerService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Customer customer = null;
 		customer = getCustomerByUsername(username);
-		return customer;
-	}
+		return null;
 
-	
+	}
 
 }

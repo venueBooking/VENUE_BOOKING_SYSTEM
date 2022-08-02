@@ -36,8 +36,11 @@ public class AdminController {
     private MyUserDetailsService userDetailsService;
     
     @Autowired
-    private RestTemplate restTemplate;
-
+    private RestTemplate dealerRestTemplate;
+    
+    @Autowired
+    private RestTemplate customerRestTemplate;
+    
     // ! For Testing Purpose
     @RequestMapping({ "/hello" })
     public String hello() {
@@ -65,11 +68,17 @@ public class AdminController {
     }
     
     @GetMapping("/getAllDealers") 
-    public List<Object> getStudents() {
+    public List<Object> getAllDealers() {
     	
-		Object[] objects = restTemplate.getForObject("http://localhost:9001/dealer/getAllDealers", Object[].class);
+		Object[] objects = dealerRestTemplate.getForObject("http://localhost:9001/dealer/getAllDealers", Object[].class);
+//		System.out.println("Array obj "+Arrays.asList(objects));
+    	return Arrays.asList(objects);
+    }
+    @GetMapping("/getAllCustomers") 
+    public List<Object> getAllCustomers() {
+    	
+		Object[] objects = customerRestTemplate.getForObject("http://localhost:9003/customer/getAllCustomers", Object[].class);
 		System.out.println("Array obj "+Arrays.asList(objects));
     	return Arrays.asList(objects);
     }
-
 }

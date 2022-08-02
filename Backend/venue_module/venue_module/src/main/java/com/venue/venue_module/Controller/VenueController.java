@@ -18,6 +18,7 @@ import com.venue.venue_module.entities.Venue;
 import com.venue.venue_module.services.VenueService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class VenueController {
 	
 	@Autowired

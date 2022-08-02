@@ -4,9 +4,13 @@ package com.venue.venue_module.entities;
 import javax.persistence.Entity;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import lombok.NoArgsConstructor;
+
 import javax.persistence.GeneratedValue;
 
 @Entity
+@NoArgsConstructor
 public class Venue {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,34 +22,16 @@ public class Venue {
 	private boolean banquetAmenity;
 	private boolean diningAmenity;
 	private boolean parkingAmenity;
-
-	
-	public Venue(long venueId, String venuename, String venuelocation, int capacity, int dealerId,
-			boolean banquetAmenity, boolean diningAmenity, boolean parkingAmenity) {
-		super();
+	private int bookingRequest;
+	public long getVenueId() {
+		return venueId;
+	}
+	public void setVenueId(long venueId) {
 		this.venueId = venueId;
-		this.venuename = venuename;
-		this.venuelocation = venuelocation;
-		this.capacity = capacity;
-		this.dealerId = dealerId;
-		this.banquetAmenity = banquetAmenity;
-		this.diningAmenity = diningAmenity;
-		this.parkingAmenity = parkingAmenity;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Venue [venueId=" + venueId + ", venuename=" + venuename + ", venuelocation=" + venuelocation
-				+ ", capacity=" + capacity + ", dealerId=" + dealerId + ", banquetAmenity=" + banquetAmenity
-				+ ", diningAmenity=" + diningAmenity + ", parkingAmenity=" + parkingAmenity + "]";
-	}
-
-
 	public String getVenuename() {
 		return venuename;
 	}
-
 	public void setVenuename(String venuename) {
 		this.venuename = venuename;
 	}
@@ -61,12 +47,11 @@ public class Venue {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-
-	public long getVenueId() {
-		return venueId;
+	public int getDealerId() {
+		return dealerId;
 	}
-	public void setVenueId(long venueId) {
-		this.venueId = venueId;
+	public void setDealerId(int dealerId) {
+		this.dealerId = dealerId;
 	}
 	public boolean isBanquetAmenity() {
 		return banquetAmenity;
@@ -86,10 +71,18 @@ public class Venue {
 	public void setParkingAmenity(boolean parkingAmenity) {
 		this.parkingAmenity = parkingAmenity;
 	}
-	public int getDealerId() {
-		return dealerId;
+	public int getBookingRequest() {
+		return bookingRequest;
 	}
-	public void setDealerId(int dealerId) {
-		this.dealerId = dealerId;
+	public void setBookingRequest(int bookingRequest) {
+		this.bookingRequest = bookingRequest;
 	}
+	@Override
+	public String toString() {
+		return "Venue [venueId=" + venueId + ", venuename=" + venuename + ", venuelocation=" + venuelocation
+				+ ", capacity=" + capacity + ", dealerId=" + dealerId + ", banquetAmenity=" + banquetAmenity
+				+ ", diningAmenity=" + diningAmenity + ", parkingAmenity=" + parkingAmenity + ", bookingRequest="
+				+ bookingRequest + "]";
+	}
+	
 }

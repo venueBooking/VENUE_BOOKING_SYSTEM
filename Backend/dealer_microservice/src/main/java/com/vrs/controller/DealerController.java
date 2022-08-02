@@ -1,5 +1,6 @@
 package com.vrs.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.vrs.model.Dealer;
 import com.vrs.model.AuthenticationRequest;
@@ -40,6 +42,12 @@ public class DealerController {
 
 	@Autowired
 	JwtUtilService jwtUtilService;
+	
+	@Autowired
+    private RestTemplate venueRestTemplate;
+	
+	@Autowired
+    private RestTemplate bookingRestTemplate;
 
 	@GetMapping("/getAllDealers")
 	public List<Dealer> getDealers() {
@@ -146,5 +154,19 @@ public class DealerController {
 		return new ResponseEntity<>(String.format("%s %s IS DELETED!", dealer.getFirstName().toUpperCase(),
 				dealer.getLastName().toUpperCase()), HttpStatus.OK);
 	}
+	@GetMapping("/getAllVenues") 
+    public List<Object> getAllVenues() {
+    	
+		Object[] objects = venueRestTemplate.getForObject("http://localhost:9004/venue/venues", Object[].class);
+		System.out.println("Array obj "+Arrays.asList(objects));
+    	return Arrays.asList(objects);
+    }
+	@GetMapping("/getAllBookings") 
+    public List<Object> getAllBookings() {
+    	
+		Object[] objects = bookingRestTemplate.getForObject("http://localhost:9004/venue/bookings", Object[].class);
+		System.out.println("Array obj "+Arrays.asList(objects));
+    	return Arrays.asList(objects);
+    }
 
 }

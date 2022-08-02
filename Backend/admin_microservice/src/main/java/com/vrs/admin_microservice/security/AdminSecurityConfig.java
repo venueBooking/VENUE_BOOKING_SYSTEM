@@ -72,7 +72,8 @@ public class AdminSecurityConfig
                 "/webjars/**",
                 "/h2/**",
                 "/authenticate",
-                "/getAllDealers/**" // <-- Remove this later, for testing purposes only
+                "/getAllDealers/**",
+                "/getAllCustomers/**"// <-- Remove this later, for testing purposes only
                );
     }
 }

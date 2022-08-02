@@ -54,6 +54,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/authenticate",
                 "/addAllDealer/**", 	// <-- Remove this later, for testing purposes only
                 "/addDealer/**",
+                "/getAllVenues/**",
+                "/getAllBookings/**",
                 "/getAllDealers/**");
     }
 	

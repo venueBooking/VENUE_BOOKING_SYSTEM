@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import headerContext from "../../contexts/headerContext";
 import userContext from "../../contexts/userContext";
+import venueContext from "../../contexts/venueContext";
 import DealerService from "../../Services/DealerService";
+import VenueService from "../../Services/VenueService";
 
 export const DealerLoginComponent = () => {
   const navigate = useNavigate(headerContext);
   const userC = useContext(userContext);
+  const venueC = useContext(venueContext);
   const headerC = useContext(headerContext);
 
   function goToDealerRegistration() {
@@ -15,8 +18,9 @@ export const DealerLoginComponent = () => {
 
   async function startDealerLogin(event) {
     event.preventDefault();
-    var response;
-    var dealer;
+    let response;
+    let dealer;
+    let venue;
 
     const credentials = {
       username: document.getElementById("dealer-login-username").value,
@@ -39,8 +43,18 @@ export const DealerLoginComponent = () => {
       dealer.data.password
     );
 
+    // response = await VenueService.getToken(credentials);
+    // console.log("JWT token --> ", response.data);
+    // headerC.updateJwtToken(response.data);
+    // console.log("header context jwtToken --> ", headerC.state.jwtToken);
+    venue = await VenueService.getVenueData(response.data);
+    // console.log("venue --> ", venue.data);
+
+    venueC.updateVenue(venue.data);
+
     headerC.updateLogin("block");
     headerC.updateUserType("dealer");
+
     navigate("/viewVenueStatus");
   }
 
@@ -71,9 +85,7 @@ export const DealerLoginComponent = () => {
               ></input>
             </div>
             <div className="dealer-login-input">
-              <button
-                className="btn btn-outline-light btn-lg dealer-login-button"
-              >
+              <button className="btn btn-outline-light btn-lg dealer-login-button">
                 Login
               </button>
               <button

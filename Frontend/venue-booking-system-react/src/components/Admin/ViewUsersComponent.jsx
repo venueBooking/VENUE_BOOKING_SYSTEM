@@ -24,6 +24,7 @@ function ViewUsersComponent() {
   const getDealers = () => {
     AdminService.getDealers().then((response) => {
       setDealers(response.data);
+      console.log(response.data);
     });
   };
   return (

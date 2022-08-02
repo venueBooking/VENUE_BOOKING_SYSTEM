@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="E:\Venue Booking System\VENUE_BOOKING_SYSTEM\Backend"/>
 			<item value="E:\Venue Booking System\VENUE_BOOKING_SYSTEM\Backend\admin_microservice"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -22,58 +22,7 @@ public class Booking {
 	private long customerId;
 	private LocalDate dateFrom;
 	private LocalDate dateTo;
-	private int bookingRequest;
-	public long getBookingId() {
-		return bookingId;
-	}
-	public void setBookingId(long bookingId) {
-		this.bookingId = bookingId;
-	}
-	public LocalDate getDateFrom() {
-		return dateFrom;
-	}
-	public void setDateFrom(LocalDate dateFrom) {
-		this.dateFrom = dateFrom;
-	}
-	public LocalDate getDateTo() {
-		return dateTo;
-	}
-	public void setDateTo(LocalDate dateTo) {
-		this.dateTo = dateTo;
-	}
-	public long getVenueId() {
-		return venueId;
-	}
-	public void setVenueId(long venueId) {
-		this.venueId = venueId;
-	}
-	public long getCustomerId() {
-		return customerId;
-	}
-	public void setCustomerId(long customerId) {
-		this.customerId = customerId;
-	}
+
 	
-	public int getBookingRequest() {
-		return bookingRequest;
-	}
-	public void setBookingRequest(int bookingRequest) {
-		this.bookingRequest = bookingRequest;
-	}
-	
-	public Booking(long bookingId, long venueId, long customerId, LocalDate dateTo, LocalDate dateFrom,
-			int bookingRequest) {
-		super();
-		this.bookingId = bookingId;
-		this.venueId = venueId;
-		this.customerId = customerId;
-		this.dateTo = dateTo;
-		this.dateFrom = dateFrom;
-		this.bookingRequest = bookingRequest;
-	}
-	public Booking() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	
 }
