@@ -5,7 +5,6 @@ import headerContext from "../../contexts/headerContext";
 import userContext from "../../contexts/userContext";
 import Design from "../../Design";
 import VenueService from "../../Services/VenueService";
-import CustomTextField from "../../Supporting_Components/CustomTextField";
 
 function ConfirmPaymentComponent() {
   const navigate = useNavigate();
